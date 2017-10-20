@@ -6,6 +6,7 @@
     "dependencies": {
         "elasticsearch": "^13.3",
         "express": "^4.14",
-        "shelljs": "^0.7"
+        "shelljs": "^0.7",
+        "kafka-node": "^1.6"
     }
 }
