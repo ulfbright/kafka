@@ -1,0 +1,11 @@
+{
+    "name": "filter",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "stas",
+    "dependencies": {
+        "kafka-node": "^1.6",
+        "request": "^2.81",
+        "elasticsearch": "^13.3"
+    }
+}

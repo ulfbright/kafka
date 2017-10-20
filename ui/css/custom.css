@@ -1,0 +1,65 @@
+.labelholder {
+	position: relative;
+}
+
+.labelmaker {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+}
+
+.topcontrol {
+	margin-top: 15px;
+	border-radius: 0;
+}
+
+.boxcontrol {
+	border-radius: 0;
+}
+
+.leftcontrol {
+	float: left;
+	border-radius: 0;
+}
+
+.subsign {
+	float: right;
+	margin-right: 5px;
+}
+
+.rockingit {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.therocker {
+	width: 150px;
+}
+
+.logowars {
+	height: 50px;
+	margin-left: 15px;
+}
+
+.navbarfix {
+	border-bottom: 0;
+}
+
+.navrightfix {
+	margin-right: 0px;
+}
+
+.containerfix {
+	margin-top: 70px;
+}
+
+.secondfix {
+	margin-top: 3px;
+}
+
+.tablepanel {
+	text-align: center;
+}

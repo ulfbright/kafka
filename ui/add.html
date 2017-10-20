@@ -1,0 +1,89 @@
+<div class="modal-content">
+	<div class="modal-header">
+		<h class="modal-title"><strong>Add</strong></h>
+	</div>
+	
+	<div class="modal-body clearfix">
+		<div class="form-group">
+			<div class="labelholder">
+				<select class="form-control" ng-model="dbClone" ng-init="dbClone=db">
+					<option ng-repeat="(key, value) in dbs track by key" value="{{ key }}">{{ key }}</option>
+				</select>
+				
+				<div class="labelmaker">~ Source ~</div>
+			</div>
+			
+			<div class="labelholder">
+				<select class="form-control topcontrol" ng-model="topicClone" ng-init="topicClone=topic" ng-click="getTopics()">
+					<option ng-repeat="topic in topics track by topic" value="{{ topic }}">{{ topic }}</option>
+				</select>
+				
+				<div class="labelmaker">~ Topic ~</div>
+			</div>
+			
+			<input type="text" class="form-control topcontrol" placeholder="Name" ng-model="clone.name">
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group input-group" aria-describedby="addGlyph1">
+					<input type="text" class="form-control boxcontrol" placeholder="Match" ng-model="matchWord">
+					
+					<span class="input-group-addon boxcontrol" id="addGlyph1" ng-click="addMatch(matchWord)">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</span>
+				</div>
+				
+				<table class="table table-bordered table-striped table-hover">
+					<tr ng-repeat="word in clone.match.pos track by $index">
+						<td>{{ word }}<span class="glyphicon glyphicon-minus subsign" aria-hidden="true" ng-click="remMatch($index)"></span></td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="form-group input-group" aria-describedby="addGlyph2">
+					<input type="text" class="form-control boxcontrol" placeholder="Skip" ng-model="skipWord">
+					
+					<span class="input-group-addon boxcontrol" id="addGlyph2" ng-click="addSkip(skipWord)">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</span>
+				</div>
+				
+				<table class="table table-bordered table-striped table-hover">
+					<tr ng-repeat="word in clone.match.neg track by $index">
+						<td>{{ word }}<span class="glyphicon glyphicon-minus subsign" aria-hidden="true" ng-click="remSkip($index)"></span></td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="form-group input-group" aria-describedby="addGlyph3">
+					<input type="text" class="form-control boxcontrol" placeholder="Tags" ng-model="tagWord">
+					
+					<span class="input-group-addon boxcontrol" id="addGlyph3" ng-click="addTag(tagWord)">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</span>
+				</div>
+				
+				<table class="table table-bordered table-striped table-hover">
+					<tr ng-repeat="word in clone.tags track by $index">
+						<td>{{ word }}<span class="glyphicon glyphicon-minus subsign" aria-hidden="true" ng-click="remTag($index)"></span></td>
+			   		</tr>
+			   </table>
+			</div>
+		</div>
+		
+		<div class="{{ toad }} rockingit"><img src="img/rocker.gif" class="therocker"></div>
+		
+		<div>
+			<pre class="pre-scrollable"><span ng-repeat="mess in valRes">{{ mess | json }}<br></span></pre>
+		</div>
+	</div>
+	
+	<div class="modal-footer">
+		<button class="btn btn-success boxcontrol" type="button" ng-click="validate()">Validate</button>
+		<button class="btn btn-primary {{ saveState }} boxcontrol" type="button" ng-click="save()">Save</button>
+		<button class="btn btn-warning boxcontrol" type="button" ng-click="cancel()" ng-click="cancel()">Cancel</button>
+	</div>
+</div>

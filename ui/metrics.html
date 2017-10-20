@@ -1,0 +1,66 @@
+<div class="modal-content">
+	<div class="modal-header">
+		<h class="modal-title"><strong>Metrics</strong></h>
+	</div>
+	
+	<div class="modal-body clearfix">
+		<div class="panel panel-info">
+			<div class="panel-heading tablepanel">1m Δ</div>
+			
+			<table class="table table-bordered table-striped table-hover" ng-init="getKafka()">
+				<tr>
+					<th>Topic</th>
+					<th class="col-md-4">Current</th>
+					<th class="col-md-4">1m Δ</th>
+				</tr>
+				<tr ng-repeat="(key, value) in kafka track by key">
+					<td>{{ key }}</td>
+					<td>{{ value.cur }}</td>
+					<td>{{ value.dif }}</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div class="panel panel-info">
+			<div class="panel-heading tablepanel">Lag</div>
+			
+			<table class="table table-bordered table-striped table-hover" ng-init="getGroup()">
+				<tr>
+					<th>Topic</th>
+					<th>Offset</th>
+					<th>Lag</th>
+				</tr>
+				<tr ng-repeat="(key, value) in group track by key">
+					<td>{{ key }}</td>
+					<td class="col-md-4">{{ value.off }}</td>
+					<td class="col-md-4">{{ value.dif }}</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div class="panel panel-info">
+			<div class="panel-heading tablepanel">PM2</div>
+			
+			<table class="table table-bordered table-striped table-hover" ng-init="getPM2()">
+				<tr>
+					<th>Process</th>
+					<th>Status</th>
+					<th>Restarts</th>
+					<th>Memory</th>
+					<th>CPU %</th>
+				</tr>
+				<tr ng-repeat="(key, value) in pm2 track by key">
+					<td>{{ key }}</td>
+					<td class="col-md-2">{{ value.stat }}</td>
+					<td class="col-md-2">{{ value.rest }}</td>
+					<td class="col-md-2">{{ value.mem }}</td>
+					<td class="col-md-2">{{ value.cpu }}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+	<div class="modal-footer">
+		<button class="btn btn-warning boxcontrol" type="button" ng-click="cancel()" ng-click="cancel()">Cancel</button>
+	</div>
+</div>
