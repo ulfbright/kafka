@@ -26,6 +26,7 @@ bower_components
 # Dependencies
 filter/node_modules/
 api/node_modules/
+metrics/node_modules/
 jspm_packages/
 
 # NPM
