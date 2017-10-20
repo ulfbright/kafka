@@ -34,11 +34,11 @@ app.route("/:db/:topic/test")
                 }
             
                 let consumer = new kafka.ConsumerGroup(opts, req.params.topic),
-				push = true,
-				data = {
-					valid: true,
-					messages: []
-                }
+				    push = true,
+				    data = {
+					    valid: true,
+					    messages: []
+                    }
 				
 			setTimeout(() => {				
 				if(push) {
